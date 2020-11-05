@@ -14,6 +14,7 @@
 		3AB70DFA255450AB0083FD6D /* Top100Music.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AB70DF8255450AB0083FD6D /* Top100Music.xcdatamodeld */; };
 		3AB70DFC255450AC0083FD6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB70DFB255450AC0083FD6D /* Assets.xcassets */; };
 		3AB70DFF255450AC0083FD6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB70DFD255450AC0083FD6D /* LaunchScreen.storyboard */; };
+		3AB70E0E255454B50083FD6D /* ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB70E0D255454B50083FD6D /* ModelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3AB70DFB255450AC0083FD6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AB70DFE255450AC0083FD6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AB70E00255450AC0083FD6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AB70E0D255454B50083FD6D /* ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,57 @@
 		3AB70DEE255450AB0083FD6D /* Top100Music */ = {
 			isa = PBXGroup;
 			children = (
-				3AB70DEF255450AB0083FD6D /* AppDelegate.swift */,
-				3AB70DF1255450AB0083FD6D /* SceneDelegate.swift */,
-				3AB70DF3255450AB0083FD6D /* ViewController.swift */,
-				3AB70DF5255450AB0083FD6D /* Main.storyboard */,
-				3AB70DFB255450AC0083FD6D /* Assets.xcassets */,
-				3AB70DFD255450AC0083FD6D /* LaunchScreen.storyboard */,
-				3AB70E00255450AC0083FD6D /* Info.plist */,
+				3AB70E10255454C10083FD6D /* Models */,
+				3AB70E0C255454990083FD6D /* ModelView */,
+				3AB70E08255454580083FD6D /* Views */,
+				3AB70E07255454100083FD6D /* Utilites */,
 				3AB70DF8255450AB0083FD6D /* Top100Music.xcdatamodeld */,
 			);
 			path = Top100Music;
+			sourceTree = "<group>";
+		};
+		3AB70E07255454100083FD6D /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				3AB70DFB255450AC0083FD6D /* Assets.xcassets */,
+				3AB70DEF255450AB0083FD6D /* AppDelegate.swift */,
+				3AB70DF1255450AB0083FD6D /* SceneDelegate.swift */,
+				3AB70E00255450AC0083FD6D /* Info.plist */,
+			);
+			path = Utilites;
+			sourceTree = "<group>";
+		};
+		3AB70E08255454580083FD6D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3AB70E0B2554547C0083FD6D /* Storyboards */,
+				3AB70DF3255450AB0083FD6D /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3AB70E0B2554547C0083FD6D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3AB70DF5255450AB0083FD6D /* Main.storyboard */,
+				3AB70DFD255450AC0083FD6D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		3AB70E0C255454990083FD6D /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				3AB70E0D255454B50083FD6D /* ModelView.swift */,
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		3AB70E10255454C10083FD6D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +187,7 @@
 				3AB70DFA255450AB0083FD6D /* Top100Music.xcdatamodeld in Sources */,
 				3AB70DF0255450AB0083FD6D /* AppDelegate.swift in Sources */,
 				3AB70DF2255450AB0083FD6D /* SceneDelegate.swift in Sources */,
+				3AB70E0E255454B50083FD6D /* ModelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +335,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Top100Music/Info.plist;
+				INFOPLIST_FILE = Top100Music/Utilities/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,7 +353,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Top100Music/Info.plist;
+				INFOPLIST_FILE = Top100Music/Utilities/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
