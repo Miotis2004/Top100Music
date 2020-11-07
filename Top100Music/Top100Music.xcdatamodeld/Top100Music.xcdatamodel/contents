@@ -5,8 +5,9 @@
         <attribute name="artistName" optional="YES" attributeType="String"/>
         <attribute name="artUrl" optional="YES" attributeType="String"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="releaseDate" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="AlbumData" positionX="-54" positionY="-9" width="128" height="103"/>
+        <element name="AlbumData" positionX="-54" positionY="-9" width="128" height="118"/>
     </elements>
 </model>
