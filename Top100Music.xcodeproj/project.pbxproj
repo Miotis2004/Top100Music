@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		3AB70E12255456410083FD6D /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB70E11255456410083FD6D /* Album.swift */; };
 		3AB70E15255457E00083FD6D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB70E14255457E00083FD6D /* MainViewController.swift */; };
 		3AB70E1925545BAD0083FD6D /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB70E1825545BAD0083FD6D /* AlbumCell.swift */; };
+		3AC93D002557230600019FCC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC93CFF2557230600019FCC /* DetailsViewController.swift */; };
 		3ACE08DF25558D8D004AE9B2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE08DE25558D8D004AE9B2 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		3AB70E11255456410083FD6D /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		3AB70E14255457E00083FD6D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3AB70E1825545BAD0083FD6D /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		3AC93CFF2557230600019FCC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		3ACE08DE25558D8D004AE9B2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		63631BBCEE811091763513BC /* Pods-Top100Music.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Top100Music.release.xcconfig"; path = "Target Support Files/Pods-Top100Music/Pods-Top100Music.release.xcconfig"; sourceTree = "<group>"; };
 		9EE586F6F643D345FE00C949 /* Pods-Top100Music.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Top100Music.debug.xcconfig"; path = "Target Support Files/Pods-Top100Music/Pods-Top100Music.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				3AB70E0B2554547C0083FD6D /* Storyboards */,
 				3AB70E14255457E00083FD6D /* MainViewController.swift */,
 				3AB70E1825545BAD0083FD6D /* AlbumCell.swift */,
+				3AC93CFF2557230600019FCC /* DetailsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -146,7 +149,6 @@
 				9EE586F6F643D345FE00C949 /* Pods-Top100Music.debug.xcconfig */,
 				63631BBCEE811091763513BC /* Pods-Top100Music.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -273,6 +275,7 @@
 				3AB70DF2255450AB0083FD6D /* SceneDelegate.swift in Sources */,
 				3AA337752555908D007556A3 /* CoreDataManager.swift in Sources */,
 				3AB70E12255456410083FD6D /* Album.swift in Sources */,
+				3AC93D002557230600019FCC /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

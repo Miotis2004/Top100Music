@@ -51,10 +51,33 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let imageString: String = album.value(forKeyPath: "artUrl") as? String ?? ""
         cell.albumImage.sd_setImage(with: URL(string: imageString), completed: nil)
         
+        var isFav: Bool = (album.value(forKeyPath: "isFavorite") as? Bool)!
+        if isFav {
+            cell.heartButton.setTitle("❤️", for: .normal)
+        } else {
+            cell.heartButton.setTitle("🤍", for: .normal)
+        }
+        
         return cell
     }
     
-func retrieveFromCoreData() {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(identifier: "DetailsViewController") as? DetailsViewController
+        
+        guard let currentCell = tableView.cellForRow(at: indexPath) as? AlbumCell else {return}
+        let album = albumsData[indexPath.row]
+        
+        vc?.imageUrl = album.value(forKeyPath: "artUrl") as? String ?? ""
+        vc?.isFavorite = album.value(forKeyPath: "isFavorite") as? Bool
+        
+        vc?.albumName = album.value(forKeyPath: "albumName") as? String
+        vc?.artistName = album.value(forKeyPath: "artistName") as? String
+        vc?.releaseDate = album.value(forKeyPath: "releaseDate") as? String
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    func retrieveFromCoreData() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         
         let managedContext = appDelegate.persistentContainer.viewContext
