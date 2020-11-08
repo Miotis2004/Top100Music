@@ -22,15 +22,18 @@ class DetailsViewController: UIViewController {
     var albumName: String?
     var artistName: String?
     var releaseDate: String?
+    var formattedDate: String?
     
     //let viewModel = ViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        makeDate()
 
         albumnameLabel.text = albumName
         artistNameLabel.text = artistName
-        dateLabel.text = "Release date: \(releaseDate!)"
+        dateLabel.text = "Release date: \(formattedDate!)"
         albumArtImageView.sd_setImage(with: URL(string: imageUrl!), completed: nil)
         
         if isFavorite! {
@@ -49,8 +52,29 @@ class DetailsViewController: UIViewController {
             favoriteButton.setTitle("🤍", for: .normal)
         }
         
-        var coder: CodeResults = CodeResults(artistName: artistName!, albumName: albumName!, artworkUrl100: imageUrl!, releaseDate: releaseDate!, isFavorite: isFavorite!)
+        let coder = CodeResults()
+        coder.albumName = albumName!
+        coder.artworkUrl100 = imageUrl!
+        coder.artistName = artistName!
+        coder.releaseDate = releaseDate!
+        coder.isFavorite = isFavorite!
         
         ViewModel.shared.save(toSave: coder)
+    }
+    
+    func makeDate() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        let datetime = formatter.date(from: releaseDate!)
+        formatter.dateStyle = .medium
+        print(datetime)
+        if datetime != nil {
+            formattedDate = formatter.string(from: datetime!)
+        } else {
+            formattedDate = "No date available"
+        }
+        
+        
     }
 }

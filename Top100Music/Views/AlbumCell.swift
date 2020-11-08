@@ -10,12 +10,14 @@ import CoreData
 
 class AlbumCell: UITableViewCell {
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     @IBOutlet weak var albumImage: UIImageView!
     @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var heartButton: UIButton!
     
-    var isFavorite: Bool = false
+    var isFavorite: Bool?
     var deselectedHeart: String = "🤍"
     var selectedHeart: String = "❤️"
     
@@ -27,7 +29,7 @@ class AlbumCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        if isFavorite {
+        if isFavorite ?? false {
             heartButton.setTitle(selectedHeart, for: .normal)
         } else {
             heartButton.setTitle(deselectedHeart, for: .normal)
@@ -41,17 +43,23 @@ class AlbumCell: UITableViewCell {
     }
 
     @IBAction func heartButtonTap(_ sender: UIButton) {
-        isFavorite.toggle()
+        isFavorite!.toggle()
         
-        if isFavorite {
+        if isFavorite! {
             heartButton.setTitle(selectedHeart, for: .normal)
         } else {
             heartButton.setTitle(deselectedHeart, for: .normal)
         }
         
-        var coder: CodeResults = CodeResults(artistName: artistName!, albumName: albumName!, artworkUrl100: imageUrl!, releaseDate: releaseDate!, isFavorite: isFavorite)
         
+//        var coder: CodeResults = CodeResults(artistName: artistName!, albumName: albumName!, artworkUrl100: imageUrl!, releaseDate: releaseDate!, isFavorite: isFavorite!)
         
+        let coder = CodeResults()
+        coder.albumName = albumName!
+        coder.artworkUrl100 = imageUrl!
+        coder.artistName = artistName!
+        coder.releaseDate = releaseDate!
+        coder.isFavorite = isFavorite!
         
         ViewModel.shared.save(toSave: coder)
         

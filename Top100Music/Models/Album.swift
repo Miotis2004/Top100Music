@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct Album: Codable {
     var feed: Details
@@ -29,13 +30,16 @@ struct Results: Codable {
     }
 }
 
-struct CodeResults {
-    var artistName: String
-    var albumName: String
-    var artworkUrl100: String
-    var releaseDate: String
-    var isFavorite: Bool
+
+public class CodeResults {
+    var artistName: String = ""
+    var albumName: String = ""
+    var artworkUrl100: String = ""
+    var releaseDate: String = ""
+    var isFavorite: Bool = false
 }
+
+
 
 //struct Genres: Codable {
 //    var genreName: String
