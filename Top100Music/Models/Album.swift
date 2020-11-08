@@ -20,6 +20,7 @@ struct Results: Codable {
     var albumName: String
     var artworkUrl100: String
     var releaseDate: String
+    //var isFavorite: Bool
     //var genres: [Genres]
     
     enum CodingKeys: String, CodingKey {
@@ -28,7 +29,13 @@ struct Results: Codable {
     }
 }
 
-
+struct CodeResults {
+    var artistName: String
+    var albumName: String
+    var artworkUrl100: String
+    var releaseDate: String
+    var isFavorite: Bool
+}
 
 //struct Genres: Codable {
 //    var genreName: String

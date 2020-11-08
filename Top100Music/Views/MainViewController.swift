@@ -14,7 +14,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     
-    let viewModel = ViewModel()
+    //let viewModel = ViewModel()
     var albumArray: [Album] = [Album]()
     var albumsData: [NSManagedObject] = []
 
@@ -33,7 +33,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         retrieveFromCoreData()
         
         if albumsData.count == 0 {
-            viewModel.fetchAlbums()
+            //viewModel.fetchAlbums()
+            ViewModel.shared.fetchAlbums()
             retrieveFromCoreData()
         }
     }
@@ -47,9 +48,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let album = albumsData[indexPath.row]
         cell.albumNameLabel.text = album.value(forKeyPath: "albumName") as? String
+        cell.albumName = album.value(forKeyPath: "albumName") as? String
         cell.artistNameLabel.text = album.value(forKeyPath: "artistName") as? String
+        cell.artistName = album.value(forKeyPath: "artistName") as? String
         let imageString: String = album.value(forKeyPath: "artUrl") as? String ?? ""
         cell.albumImage.sd_setImage(with: URL(string: imageString), completed: nil)
+        cell.imageUrl = imageString
+        cell.releaseDate = album.value(forKeyPath: "releaseDate") as? String
+        cell.isFavorite = (album.value(forKeyPath: "isFavorite") as? Bool)!
         
         var isFav: Bool = (album.value(forKeyPath: "isFavorite") as? Bool)!
         if isFav {

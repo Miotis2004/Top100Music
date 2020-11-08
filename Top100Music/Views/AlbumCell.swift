@@ -18,6 +18,11 @@ class AlbumCell: UITableViewCell {
     var isFavorite: Bool = false
     var deselectedHeart: String = "🤍"
     var selectedHeart: String = "❤️"
+    
+    var imageUrl: String?
+    var albumName: String?
+    var artistName: String?
+    var releaseDate: String?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,20 +49,26 @@ class AlbumCell: UITableViewCell {
             heartButton.setTitle(deselectedHeart, for: .normal)
         }
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        var coder: CodeResults = CodeResults(artistName: artistName!, albumName: albumName!, artworkUrl100: imageUrl!, releaseDate: releaseDate!, isFavorite: isFavorite)
         
-        let managedContext = appDelegate.persistentContainer.viewContext
         
-        guard let albumEntity = NSEntityDescription.entity(forEntityName: "AlbumData", in: managedContext) else {return}
         
-        var album = NSManagedObject(entity: albumEntity, insertInto: managedContext)
-        album.setValue(isFavorite, forKeyPath: "isFavorite")
+        ViewModel.shared.save(toSave: coder)
         
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Did not save favorite")
-        }
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+//
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//
+//        guard let albumEntity = NSEntityDescription.entity(forEntityName: "AlbumData", in: managedContext) else {return}
+//
+//        var album = NSManagedObject(entity: albumEntity, insertInto: managedContext)
+//        album.setValue(isFavorite, forKeyPath: "isFavorite")
+//
+//        do {
+//            try managedContext.save()
+//        } catch let error as NSError {
+//            print("Did not save favorite")
+//        }
         
     }
 }

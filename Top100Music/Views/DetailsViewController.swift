@@ -23,13 +23,14 @@ class DetailsViewController: UIViewController {
     var artistName: String?
     var releaseDate: String?
     
+    //let viewModel = ViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         albumnameLabel.text = albumName
         artistNameLabel.text = artistName
-        dateLabel.text = "Release date: \(releaseDate)"
+        dateLabel.text = "Release date: \(releaseDate!)"
         albumArtImageView.sd_setImage(with: URL(string: imageUrl!), completed: nil)
         
         if isFavorite! {
@@ -48,22 +49,8 @@ class DetailsViewController: UIViewController {
             favoriteButton.setTitle("🤍", for: .normal)
         }
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        var coder: CodeResults = CodeResults(artistName: artistName!, albumName: albumName!, artworkUrl100: imageUrl!, releaseDate: releaseDate!, isFavorite: isFavorite!)
         
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        guard let albumEntity = NSEntityDescription.entity(forEntityName: "AlbumData", in: managedContext) else {return}
-        
-        var album = NSManagedObject(entity: albumEntity, insertInto: managedContext)
-        album.setValue(isFavorite, forKeyPath: "isFavorite")
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Did not save favorite")
-        }
+        ViewModel.shared.save(toSave: coder)
     }
-    
-    
-
 }

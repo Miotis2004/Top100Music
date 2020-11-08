@@ -11,6 +11,8 @@ import CoreData
 
 class ViewModel {
     
+    static var shared = ViewModel()
+    
     var manager: CoreDataManager
     var albumArray: [Results]?
     var albumsData: [NSManagedObject] = []
@@ -42,13 +44,19 @@ extension ViewModel {
         request.responseDecodable(of: Album.self) { (response) in
             guard let albums = response.value else {return}
             
-            for album in (0..<albums.feed.results.count) {
-                self.save(toSave: albums.feed.results[album])
+            for index in (0..<albums.feed.results.count) {
+                var coder: CodeResults?
+                coder?.albumName = albums.feed.results[index].albumName
+                coder?.artistName = albums.feed.results[index].artistName
+                coder?.artworkUrl100 = albums.feed.results[index].artworkUrl100
+                coder?.releaseDate = albums.feed.results[index].releaseDate
+                coder?.isFavorite = false
+                self.save(toSave: coder!)
             }
         }
     }
     
-    func save(toSave: Results) {
+    func save(toSave: CodeResults) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -61,7 +69,7 @@ extension ViewModel {
         result.setValue(toSave.albumName, forKey: "albumName")
         result.setValue(toSave.artworkUrl100, forKey: "artUrl")
         result.setValue(toSave.releaseDate, forKey: "releaseDate")
-        result.setValue(false, forKey: "isFavorite")
+        result.setValue(toSave.isFavorite, forKey: "isFavorite")
         
         do {
             try managedContext.save()
