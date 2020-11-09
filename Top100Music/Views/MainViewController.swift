@@ -47,14 +47,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath) as! AlbumCell
         
         let album = albumsData[indexPath.row]
-        
-//        let dateFormatterGet = DateFormatter()
-//        dateFormatterGet.dateFormat = "yyyy-MM-dd"
-//
-//        let dateFormatterPrint = DateFormatter()
-//        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
-//
-//        let date: NSDate? = dateFormatterGet.date(from: album.value(forKeyPath: "releaseDate") as? String ?? "2000-01-01") as NSDate?
+
         
         cell.albumNameLabel.text = album.value(forKeyPath: "albumName") as? String
         cell.albumName = album.value(forKeyPath: "albumName") as? String

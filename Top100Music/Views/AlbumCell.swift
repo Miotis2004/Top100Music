@@ -50,10 +50,7 @@ class AlbumCell: UITableViewCell {
         } else {
             heartButton.setTitle(deselectedHeart, for: .normal)
         }
-        
-        
-//        var coder: CodeResults = CodeResults(artistName: artistName!, albumName: albumName!, artworkUrl100: imageUrl!, releaseDate: releaseDate!, isFavorite: isFavorite!)
-        
+    
         let coder = CodeResults()
         coder.albumName = albumName!
         coder.artworkUrl100 = imageUrl!
@@ -63,20 +60,7 @@ class AlbumCell: UITableViewCell {
         
         ViewModel.shared.save(toSave: coder)
         
-//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-//
-//        let managedContext = appDelegate.persistentContainer.viewContext
-//
-//        guard let albumEntity = NSEntityDescription.entity(forEntityName: "AlbumData", in: managedContext) else {return}
-//
-//        var album = NSManagedObject(entity: albumEntity, insertInto: managedContext)
-//        album.setValue(isFavorite, forKeyPath: "isFavorite")
-//
-//        do {
-//            try managedContext.save()
-//        } catch let error as NSError {
-//            print("Did not save favorite")
-//        }
+
         
     }
 }
