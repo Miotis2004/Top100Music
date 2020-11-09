@@ -36,30 +36,30 @@ class DetailsViewController: UIViewController {
         dateLabel.text = "Release date: \(formattedDate!)"
         albumArtImageView.sd_setImage(with: URL(string: imageUrl!), completed: nil)
         
-        if isFavorite! {
-            favoriteButton.setTitle("❤️", for: .normal)
-        } else {
-            favoriteButton.setTitle("🤍", for: .normal)
-        }
+//        if isFavorite! {
+//            favoriteButton.setTitle("❤️", for: .normal)
+//        } else {
+//            favoriteButton.setTitle("🤍", for: .normal)
+//        }
     }
     
     @IBAction func favoriteButtonTap(_ sender: Any) {
-        isFavorite?.toggle()
+//        isFavorite?.toggle()
+//        
+//        if isFavorite! {
+//            favoriteButton.setTitle("❤️", for: .normal)
+//        } else {
+//            favoriteButton.setTitle("🤍", for: .normal)
+//        }
         
-        if isFavorite! {
-            favoriteButton.setTitle("❤️", for: .normal)
-        } else {
-            favoriteButton.setTitle("🤍", for: .normal)
-        }
-        
-        let coder = CodeResults()
-        coder.albumName = albumName!
-        coder.artworkUrl100 = imageUrl!
-        coder.artistName = artistName!
-        coder.releaseDate = releaseDate!
-        coder.isFavorite = isFavorite!
-        
-        ViewModel.shared.save(toSave: coder)
+//        let coder = CodeResults()
+//        coder.albumName = albumName!
+//        coder.artworkUrl100 = imageUrl!
+//        coder.artistName = artistName!
+//        coder.releaseDate = releaseDate!
+//        coder.isFavorite = isFavorite!
+//        
+//        ViewModel.shared.save(toSave: coder)
     }
     
     func makeDate() {

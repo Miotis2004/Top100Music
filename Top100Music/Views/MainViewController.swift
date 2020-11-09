@@ -57,14 +57,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.albumImage.sd_setImage(with: URL(string: imageString), completed: nil)
         cell.imageUrl = imageString
         cell.releaseDate = album.value(forKeyPath: "releaseDate") as? String ?? "2000-01-01"
-        cell.isFavorite = (album.value(forKeyPath: "isFavorite") as? Bool)!
+        //cell.isFavorite = (album.value(forKeyPath: "isFavorite") as? Bool)!
         
-        var isFav: Bool = (album.value(forKeyPath: "isFavorite") as? Bool)!
-        if isFav {
-            cell.heartButton.setTitle("❤️", for: .normal)
-        } else {
-            cell.heartButton.setTitle("🤍", for: .normal)
-        }
+        //var isFav: Bool = (album.value(forKeyPath: "isFavorite") as? Bool)!
+//        if isFav {
+//            cell.heartButton.setTitle("❤️", for: .normal)
+//        } else {
+//            cell.heartButton.setTitle("🤍", for: .normal)
+//        }
         
         return cell
     }
@@ -76,7 +76,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let album = albumsData[indexPath.row]
         
         vc?.imageUrl = album.value(forKeyPath: "artUrl") as? String ?? ""
-        vc?.isFavorite = album.value(forKeyPath: "isFavorite") as? Bool
+        //vc?.isFavorite = album.value(forKeyPath: "isFavorite") as? Bool
         
         vc?.albumName = album.value(forKeyPath: "albumName") as? String
         vc?.artistName = album.value(forKeyPath: "artistName") as? String

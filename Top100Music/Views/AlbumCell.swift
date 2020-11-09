@@ -43,22 +43,22 @@ class AlbumCell: UITableViewCell {
     }
 
     @IBAction func heartButtonTap(_ sender: UIButton) {
-        isFavorite!.toggle()
-        
-        if isFavorite! {
-            heartButton.setTitle(selectedHeart, for: .normal)
-        } else {
-            heartButton.setTitle(deselectedHeart, for: .normal)
-        }
+//        isFavorite!.toggle()
+//        
+//        if isFavorite! {
+//            heartButton.setTitle(selectedHeart, for: .normal)
+//        } else {
+//            heartButton.setTitle(deselectedHeart, for: .normal)
+//        }
     
-        let coder = CodeResults()
-        coder.albumName = albumName!
-        coder.artworkUrl100 = imageUrl!
-        coder.artistName = artistName!
-        coder.releaseDate = releaseDate!
-        coder.isFavorite = isFavorite!
+//        let coder = Results()
+//        coder.albumName = albumName!
+//        coder.artworkUrl100 = imageUrl!
+//        coder.artistName = artistName!
+//        coder.releaseDate = releaseDate!
+        //coder.isFavorite = isFavorite!
         
-        ViewModel.shared.save(toSave: coder)
+        //ViewModel.shared.save(toSave: coder)
         
 
         

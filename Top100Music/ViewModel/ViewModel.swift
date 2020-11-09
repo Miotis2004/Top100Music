@@ -45,18 +45,23 @@ extension ViewModel {
             guard let albums = response.value else {return}
             
             for index in (0..<albums.feed.results.count) {
-                var coder: CodeResults?
+                var coder: Results?
                 coder?.albumName = albums.feed.results[index].albumName
                 coder?.artistName = albums.feed.results[index].artistName
                 coder?.artworkUrl100 = albums.feed.results[index].artworkUrl100
                 coder?.releaseDate = albums.feed.results[index].releaseDate
-                coder?.isFavorite = false
+                //coder?.isFavorite = false
                 self.save(toSave: coder!)
             }
+//            for index in (0..<albums.feed.results.count) {
+//
+//
+//                self.save(toSave: albums.feed.results[index])
+//            }
         }
     }
     
-    func save(toSave: CodeResults) {
+    func save(toSave: Results) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -69,7 +74,7 @@ extension ViewModel {
         result.setValue(toSave.albumName, forKey: "albumName")
         result.setValue(toSave.artworkUrl100, forKey: "artUrl")
         result.setValue(toSave.releaseDate, forKey: "releaseDate")
-        result.setValue(toSave.isFavorite, forKey: "isFavorite")
+        //result.setValue(toSave.isFavorite, forKey: "isFavorite")
         
         do {
             try managedContext.save()
